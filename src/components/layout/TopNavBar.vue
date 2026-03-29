@@ -1,8 +1,15 @@
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { useCustomersStore } from '@/stores/customers'
 import { CURRENT_USER } from '@/mocks/customers'
 
+const route = useRoute()
 const store = useCustomersStore()
+
+const searchPlaceholder = computed(
+  () => route.meta.searchPlaceholder ?? 'Search customer name…'
+)
 </script>
 
 <template>
@@ -15,7 +22,7 @@ const store = useCustomersStore()
           :value="store.searchQuery"
           @input="store.setSearchQuery($event.target.value)"
           class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 placeholder:text-primary/45 outline-none"
-          placeholder="Search customer name..."
+          :placeholder="searchPlaceholder"
           type="text"
         />
       </div>

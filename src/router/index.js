@@ -10,25 +10,29 @@ const routes = [
     path: '/customers',
     name: 'customers',
     component: CustomersView,
-    meta: { title: 'My Customers' },
+    meta: { title: 'My Customers', hideFab: true },
   },
   {
     path: '/overview',
     name: 'overview',
     component: () => import('@/views/OverviewView.vue'),
-    meta: { title: 'Overview' },
+    meta: { title: 'Overview', hideFab: true },
   },
   {
     path: '/insights',
     name: 'insights',
-    component: () => import('@/views/PlaceholderView.vue'),
-    meta: { title: 'Insights' },
+    component: () => import('@/views/InsightsView.vue'),
+    meta: {
+      title: 'Insights',
+      searchPlaceholder: 'Search insights…',
+      hideFab: true,
+    },
   },
   {
     path: '/campaigns',
     name: 'campaigns',
     component: () => import('@/views/CampaignsView.vue'),
-    meta: { title: 'Campaigns' },
+    meta: { title: 'Campaigns', hideFab: true },
   },
 ]
 
