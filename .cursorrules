@@ -1,0 +1,98 @@
+# Vite + Vue 3 — Project Rules
+
+## Stack
+- Vite 5 + Vue 3 (Composition API + <script setup>)
+- Pinia for state management
+- Vue Router 4 for routing
+- Tailwind CSS 3 with custom design tokens
+- No class-based components, no Options API
+
+## Vue 3 Patterns
+
+### Always use <script setup>
+Every component uses <script setup> — never options API, never setup() return objects.
+
+### Composable-first logic
+Extract reusable reactive logic into /src/composables/use*.js files.
+Components should be thin orchestrators, not logic holders.
+
+### Props & Emits
+Always define props with defineProps() and emits with defineEmits() — typed, explicit, documented.
+Use camelCase for props in script, kebab-case in templates.
+
+### Reactivity
+Prefer ref() for primitives, reactive() only for complex plain objects.
+Always use storeToRefs() when destructuring Pinia store state to keep reactivity.
+Never mutate props — emit events or call store actions.
+
+### Component naming
+- PascalCase filenames: CustomerTable.vue
+- Multi-word component names only (no single-word names)
+- Group by feature then type: components/customers/CustomerTable.vue
+
+### Template discipline
+- No logic in templates beyond simple ternaries
+- Extract v-for key logic into computed properties when non-trivial
+- Use v-bind shorthand (:) and v-on shorthand (@) always
+
+## Vite
+
+### Aliases
+Always use @/ alias for src/ imports. No relative ../../ paths beyond one level.
+
+### Dynamic imports
+Use dynamic import() for route-level code splitting:
+  component: () => import('@/views/SomeView.vue')
+
+### Environment variables
+Only use import.meta.env.VITE_* for client-side env vars.
+Never expose secrets — only prefix public vars with VITE_.
+
+## State (Pinia)
+
+### Setup stores only
+Use the setup store syntax (defineStore with a setup function), not options stores.
+Keep actions as named functions inside the store, not anonymous callbacks.
+
+### Store granularity
+One store per domain entity (customers, campaigns, insights).
+Stores own their data and filtering logic — views orchestrate, stores own state.
+
+## File structure
+src/
+├── assets/          # CSS, fonts, static
+├── components/
+│   ├── layout/      # SideNavBar, TopNavBar, etc.
+│   ├── ui/          # Generic atoms: StatusBadge, MaterialIcon, etc.
+│   └── [feature]/   # Feature-specific molecules
+├── composables/     # use*.js composable hooks
+├── mocks/           # Mock data — all mocks live here, exported from index
+├── router/          # Route definitions
+├── stores/          # Pinia stores
+└── views/           # Route-level page components
+
+## CSS / Tailwind
+
+### Design token discipline
+Never hardcode hex values in templates. Always use the Tailwind design token (bg-primary, text-on-surface).
+Exceptions: one-off layout values like w-64 for sidebar width.
+
+### Utility extraction
+If a set of utilities repeats 3+ times, extract it to an @layer components class in main.css.
+Never create a new CSS file for component styles unless it's a global base rule.
+
+### No scoped styles for Tailwind-based components
+Since we use utility classes, <style scoped> is only acceptable for
+CSS-only interactions not achievable with utilities (e.g., custom keyframes).
+
+## Code quality
+
+### No magic strings
+Status values, route names, filter keys — all must be constants defined in a central place (mocks/ or a constants/ file).
+
+### No prop drilling beyond 2 levels
+If a value needs to go deeper than 2 component levels, move it to a Pinia store or provide/inject.
+
+### Async handling
+All async operations must handle loading and error states.
+Use a composable (useAsync or similar) to avoid repeating try/catch boilerplate.

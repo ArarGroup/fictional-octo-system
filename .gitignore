@@ -1,0 +1,66 @@
+# -------------------------
+# Node
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------------------------
+# Firebase
+# -------------------------
+.firebase/
+.firebase/*
+
+# Local env config
+.env
+.env.*
+!.env.example
+
+# Firebase cache / logs
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# -------------------------
+# Build / dist
+# -------------------------
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vercel/
+
+# -------------------------
+# Logs
+# -------------------------
+logs/
+*.log
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+# Coverage / testing
+# -------------------------
+coverage/
+.nyc_output/
+
+# -------------------------
+# Misc
+# -------------------------
+.tmp/
+.cache/
