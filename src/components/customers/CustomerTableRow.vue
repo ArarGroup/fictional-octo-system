@@ -5,6 +5,7 @@ import MaterialIcon from '@/components/ui/MaterialIcon.vue'
 const props = defineProps({
   customer: { type: Object, required: true },
   isSelected: { type: Boolean, default: false },
+  isFresh: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['select'])
@@ -14,8 +15,9 @@ const emit = defineEmits(['select'])
   <tr
     @click="emit('select', customer.id)"
     :class="[
-      'hover:bg-surface-container-low transition-colors cursor-pointer',
-      isSelected ? 'bg-surface-container-low' : '',
+      'cursor-pointer transition-colors',
+      isFresh ? 'animate-live-in' : 'hover:bg-surface-container-low',
+      isSelected && !isFresh ? 'bg-surface-container-low' : '',
     ]"
   >
     <!-- Name -->
@@ -25,7 +27,16 @@ const emit = defineEmits(['select'])
           <img :src="customer.avatar" :alt="customer.name" class="w-full h-full object-cover" />
         </div>
         <div>
-          <p class="font-bold text-on-surface">{{ customer.name }}</p>
+          <div class="flex items-center gap-2">
+            <p class="font-bold text-on-surface">{{ customer.name }}</p>
+            <span
+              v-if="isFresh"
+              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-secondary text-[9px] font-extrabold uppercase tracking-wider"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse shrink-0" />
+              En vivo
+            </span>
+          </div>
           <p class="text-xs text-on-surface-variant">{{ customer.email }}</p>
         </div>
       </div>

@@ -40,7 +40,19 @@ defineProps({
         <h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">
           Historial de visitas
         </h4>
-        <div class="space-y-4">
+
+        <!-- Empty state: brand-new live registration -->
+        <div
+          v-if="customer.visitTimeline.length === 0"
+          class="bg-surface-container-lowest rounded-2xl p-5 flex items-center gap-3"
+        >
+          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
+          <p class="text-xs text-on-surface-variant italic">
+            Recién registrado — aún no hay primera visita registrada.
+          </p>
+        </div>
+
+        <div v-else class="space-y-4">
           <div
             v-for="(visit, index) in customer.visitTimeline"
             :key="index"

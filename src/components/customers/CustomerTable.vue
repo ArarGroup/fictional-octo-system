@@ -5,6 +5,7 @@ defineProps({
   customers: { type: Array, required: true },
   selectedId: { type: Number, default: null },
   activeFilter: { type: String, default: 'all' },
+  freshIds: { type: Object, default: () => new Set() }, // Set<number>
 })
 
 const emit = defineEmits(['select', 'filter-change'])
@@ -65,6 +66,7 @@ const emit = defineEmits(['select', 'filter-change'])
             :key="customer.id"
             :customer="customer"
             :is-selected="customer.id === selectedId"
+            :is-fresh="freshIds.has(customer.id)"
             @select="emit('select', $event)"
           />
         </tbody>
