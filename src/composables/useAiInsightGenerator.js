@@ -10,6 +10,8 @@
  */
 
 import { ref, readonly } from 'vue'
+import { trackEvent } from '@/analytics/trackEvent'
+import { ANALYTICS_EVENTS } from '@/analytics/eventNames'
 import { AI_INSIGHT_POOL } from '@/mocks/overview'
 
 // Each phase label is shown for PHASE_DURATION ms before advancing.
@@ -39,10 +41,11 @@ export function useAiInsightGenerator() {
     phaseLabel.value   = PHASES[0]
 
     // Pick the next insight before starting so the delay feels deterministic
+    const poolEntry = AI_INSIGHT_POOL[poolCursor % AI_INSIGHT_POOL.length]
     const incoming = {
-      ...AI_INSIGHT_POOL[poolCursor % AI_INSIGHT_POOL.length],
+      ...poolEntry,
       // Give each generated card a unique key so TransitionGroup handles it correctly
-      id: `${AI_INSIGHT_POOL[poolCursor % AI_INSIGHT_POOL.length].id}-${Date.now()}`,
+      id: `${poolEntry.id}-${Date.now()}`,
     }
     poolCursor++
 
@@ -59,6 +62,10 @@ export function useAiInsightGenerator() {
         setTimeout(() => {
           generatedInsights.value.unshift(incoming)
           isGenerating.value = false
+          trackEvent(ANALYTICS_EVENTS.AI_INSIGHT_GENERATED, {
+            insight_template_id: poolEntry.id,
+            insight_accent: poolEntry.accent,
+          })
         }, REVEAL_DELAY)
       }
     }

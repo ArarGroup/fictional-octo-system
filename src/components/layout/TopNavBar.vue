@@ -4,8 +4,14 @@ import { useRoute } from 'vue-router'
 import { useCustomersStore } from '@/stores/customers'
 import { CURRENT_USER } from '@/mocks/customers'
 import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
+import { trackEvent } from '@/analytics/trackEvent'
+import { ANALYTICS_EVENTS } from '@/analytics/eventNames'
 
 const route = useRoute()
+
+function onHelpClick() {
+  trackEvent(ANALYTICS_EVENTS.HELP_CLICKED)
+}
 const store = useCustomersStore()
 
 const searchPlaceholder = computed(
@@ -36,7 +42,9 @@ const searchPlaceholder = computed(
     <!-- Right side -->
     <div class="flex items-center gap-6">
       <button
+        type="button"
         class="text-primary dark:text-primary-fixed-dim font-medium hover:text-primary-container transition-opacity opacity-90 hover:opacity-100 flex items-center gap-1 group relative"
+        @click="onHelpClick"
       >
         <span class="material-symbols-outlined text-xl">help</span>
         <span>Ayuda</span>

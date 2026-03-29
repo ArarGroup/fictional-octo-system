@@ -1,8 +1,14 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
+import { trackEvent } from '@/analytics/trackEvent'
+import { ANALYTICS_EVENTS } from '@/analytics/eventNames'
 
 const route = useRoute()
+
+function onTalkClick() {
+  trackEvent(ANALYTICS_EVENTS.CTA_TALK_CLICKED)
+}
 
 const navItems = [
   { label: 'Resumen', icon: 'dashboard', to: '/overview' },
@@ -50,7 +56,9 @@ const navItems = [
     <!-- CTA -->
     <div class="p-6 mt-auto">
       <button
+        type="button"
         class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full cta-gradient text-on-primary font-bold text-sm shadow-md hover:opacity-90 transition-opacity group relative"
+        @click="onTalkClick"
       >
         Hablemos
         <span

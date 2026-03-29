@@ -4,6 +4,8 @@ import { useCustomersStore } from '@/stores/customers'
 import CustomerTable from '@/components/customers/CustomerTable.vue'
 import CustomerDetailPanel from '@/components/customers/CustomerDetailPanel.vue'
 import { useMockLiveRegistrations } from '@/composables/useMockLiveRegistrations'
+import { trackEvent } from '@/analytics/trackEvent'
+import { ANALYTICS_EVENTS } from '@/analytics/eventNames'
 
 const store = useCustomersStore()
 const { filteredCustomers, selectedCustomer, activeFilter, freshIds, liveRegistrationCount } =
@@ -19,6 +21,16 @@ const filters = [
   { value: 'active',  label: 'Activos'   },
   { value: 'at_risk', label: 'En riesgo' },
 ]
+
+function onFilterChange(value) {
+  store.setFilter(value)
+  trackEvent(ANALYTICS_EVENTS.CUSTOMER_FILTER_CHANGED, { filter: value })
+}
+
+function onCustomerSelect(id) {
+  store.selectCustomer(id)
+  trackEvent(ANALYTICS_EVENTS.CUSTOMER_SELECTED, { customer_id: id })
+}
 </script>
 
 <template>
@@ -50,7 +62,7 @@ const filters = [
           <button
             v-for="f in filters"
             :key="f.value"
-            @click="store.setFilter(f.value)"
+            @click="onFilterChange(f.value)"
             :class="[
               'px-6 py-2 rounded-full text-sm font-semibold transition-colors',
               activeFilter === f.value
@@ -73,7 +85,7 @@ const filters = [
           :selected-id="selectedCustomer?.id"
           :active-filter="activeFilter"
           :fresh-ids="freshIds"
-          @select="store.selectCustomer"
+          @select="onCustomerSelect"
         />
       </div>
 
