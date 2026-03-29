@@ -44,4 +44,15 @@
   .ambient-shadow {
     box-shadow: 0 12px 32px rgba(28, 28, 22, 0.06);
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cfc8be;
+    border-radius: 10px;
+  }
 }

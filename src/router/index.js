@@ -34,6 +34,12 @@ const routes = [
     component: () => import('@/views/CampaignsView.vue'),
     meta: { title: 'Campaigns', hideFab: true },
   },
+  {
+    path: '/marketing',
+    name: 'marketing',
+    component: () => import('@/views/MarketingView.vue'),
+    meta: { title: 'Marketing preview', hideFab: true },
+  },
 ]
 
 const router = createRouter({

@@ -8,6 +8,7 @@ const navItems = [
   { label: 'My Customers', icon: 'group',       to: '/customers'  },
   { label: 'Insights',     icon: 'analytics',   to: '/insights'   },
   { label: 'Campaigns',    icon: 'campaign',    to: '/campaigns'  },
+  { label: 'Marketing',    icon: 'mail',        to: '/marketing'  },
 ]
 </script>
 
