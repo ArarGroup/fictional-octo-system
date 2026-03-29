@@ -12,11 +12,11 @@ const navItems = [
 </script>
 
 <template>
-  <aside class="fixed left-0 top-0 h-full z-40 flex flex-col w-64 bg-[#fdfcf9] dark:bg-stone-900">
+  <aside class="fixed left-0 top-0 h-full z-40 flex flex-col w-64 bg-white dark:bg-stone-900">
     <!-- Logo -->
     <div class="p-8">
       <h1 class="text-2xl font-bold text-primary italic serif">FruverFiel</h1>
-      <p class="text-xs tracking-widest uppercase text-stone-400 mt-1 font-medium">Modern Agrarian</p>
+      <p class="text-xs tracking-widest uppercase text-on-surface-variant mt-1 font-medium">Modern Agrarian</p>
     </div>
 
     <!-- Nav -->
@@ -33,8 +33,8 @@ const navItems = [
           :class="[
             'flex items-center gap-3 px-4 py-3 transition-colors cursor-pointer',
             isActive
-              ? 'text-primary font-bold border-r-4 border-primary bg-surface-container-low rounded-l-xl scale-95'
-              : 'text-stone-600 dark:text-stone-400 hover:text-primary hover:bg-surface-container-low rounded-xl',
+              ? 'bg-primary text-on-primary font-bold rounded-xl shadow-sm'
+              : 'text-on-surface-variant dark:text-primary-fixed-dim hover:text-primary hover:bg-surface-container-low rounded-xl',
           ]"
         >
           <span class="material-symbols-outlined">{{ item.icon }}</span>
@@ -45,7 +45,7 @@ const navItems = [
 
     <!-- CTA -->
     <div class="p-6 mt-auto">
-      <button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full cta-gradient text-white font-bold text-sm shadow-md hover:opacity-90 transition-opacity group relative">
+      <button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full cta-gradient text-on-primary font-bold text-sm shadow-md hover:opacity-90 transition-opacity group relative">
         Talk to us
         <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
           Want full access? Talk to us.

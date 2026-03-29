@@ -49,7 +49,7 @@ defineProps({
       <section class="pt-4 space-y-3">
         <button
           disabled
-          class="w-full py-3 rounded-full bg-surface-variant text-stone-400 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
+          class="w-full py-3 rounded-full bg-surface-variant text-primary/40 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
         >
           <span class="material-symbols-outlined text-sm">send</span>
           Send Loyalty Voucher
@@ -59,7 +59,7 @@ defineProps({
         </button>
         <button
           disabled
-          class="w-full py-3 rounded-full bg-surface-variant text-stone-400 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
+          class="w-full py-3 rounded-full bg-surface-variant text-primary/40 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
         >
           <span class="material-symbols-outlined text-sm">edit</span>
           Edit Profile Notes

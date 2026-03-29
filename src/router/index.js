@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/overview',
     name: 'overview',
-    component: () => import('@/views/PlaceholderView.vue'),
+    component: () => import('@/views/OverviewView.vue'),
     meta: { title: 'Overview' },
   },
   {
@@ -27,7 +27,7 @@ const routes = [
   {
     path: '/campaigns',
     name: 'campaigns',
-    component: () => import('@/views/PlaceholderView.vue'),
+    component: () => import('@/views/CampaignsView.vue'),
     meta: { title: 'Campaigns' },
   },
 ]

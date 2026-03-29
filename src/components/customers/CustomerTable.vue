@@ -21,7 +21,7 @@ const filters = [
     <!-- Header row: filters + count -->
     <div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
       <div class="flex gap-3">
-        <span class="px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold flex items-center gap-1">
+        <span class="px-4 py-1.5 rounded-full bg-primary-container/20 text-primary text-xs font-bold flex items-center gap-1">
           <span class="material-symbols-outlined text-sm">filter_alt</span>
           All Statuses
         </span>

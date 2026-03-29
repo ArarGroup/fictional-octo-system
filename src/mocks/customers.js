@@ -2,7 +2,7 @@
 export const CUSTOMER_STATUSES = {
   regular: {
     label: 'Regular',
-    classes: 'bg-secondary-container text-on-secondary-container',
+    classes: 'bg-primary-container/20 text-primary',
   },
   new: {
     label: 'New',

@@ -5,8 +5,8 @@
 @layer base {
   body {
     font-family: 'Be Vietnam Pro', sans-serif;
-    background-color: #fef9f1;
-    color: #1d1c17;
+    background-color: #fcf9ef;
+    color: #1c1c16;
   }
 
   .serif {
@@ -26,17 +26,19 @@
 }
 
 @layer utilities {
+  /* Surface #fcf9ef @ 80% — DESIGN.md §2 glass rule */
   .glass-panel {
-    background: rgba(253, 252, 249, 0.8);
+    background: rgba(252, 249, 239, 0.8);
     backdrop-filter: blur(12px);
   }
 
   .custom-shadow {
-    box-shadow: 0 12px 32px rgba(86, 66, 62, 0.08);
+    box-shadow: 0 12px 32px rgba(28, 28, 22, 0.06);
   }
 
+  /* Primary CTA — DESIGN.md §2 glass & gradient (145°) */
   .cta-gradient {
-    background: linear-gradient(45deg, #9d3d2e, #bd5444);
+    background: linear-gradient(145deg, #47532b 0%, #5f6b41 100%);
   }
 
   .ambient-shadow {

@@ -11,6 +11,8 @@ To break the "template" look, we prioritize **intentional asymmetry** and **tona
 The palette is a dialogue between the muted, authoritative Olive Green and the vibrant, sun-baked Terracotta.
 
 ### The Core Palette
+These hex values are **canonical** in code (Tailwind `primary` / `primary-container`) and should not be approximated with other olives or browns.
+
 * **Primary (`#47532b` / `#5f6b41`):** The grounding force. Use the Primary Container (`#5f6b41`) for major structural elements and the Primary core for high-emphasis call-to-actions.
 * **Secondary (`#a03f30` / `#fe8672`):** The "Life" color. Used for accents, secondary CTAs, and highlighting organic data points.
 * **Background (`#fcf9ef`):** A warm, cream canvas that prevents the "clinical" feel of pure white.
