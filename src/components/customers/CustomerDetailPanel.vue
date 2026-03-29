@@ -1,4 +1,6 @@
 <script setup>
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
+
 defineProps({
   customer: { type: Object, required: true },
 })
@@ -18,9 +20,15 @@ defineProps({
     <div class="space-y-8">
       <!-- Habits Summary (Editorial Inset) -->
       <section>
-        <h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">Habits Summary</h4>
-        <div class="bg-surface-container-lowest p-5 rounded-2xl relative overflow-hidden border-l-4 border-primary-container">
-          <div class="absolute -right-4 -top-4 w-16 h-16 bg-secondary-container/40 rounded-full pointer-events-none"></div>
+        <h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">
+          Resumen de hábitos
+        </h4>
+        <div
+          class="bg-surface-container-lowest p-5 rounded-2xl relative overflow-hidden border-l-4 border-primary-container"
+        >
+          <div
+            class="absolute -right-4 -top-4 w-16 h-16 bg-secondary-container/40 rounded-full pointer-events-none"
+          />
           <p class="text-sm leading-relaxed text-on-surface italic serif">
             "{{ customer.habitsNote }}"
           </p>
@@ -29,16 +37,25 @@ defineProps({
 
       <!-- Visit Timeline -->
       <section>
-        <h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">Visit Timeline</h4>
+        <h4 class="text-xs font-extrabold uppercase tracking-widest text-primary mb-4">
+          Historial de visitas
+        </h4>
         <div class="space-y-4">
           <div
             v-for="(visit, index) in customer.visitTimeline"
             :key="index"
             class="flex items-start gap-3"
           >
-            <div :class="['mt-1 w-2 h-2 rounded-full shrink-0', index === 0 ? 'bg-secondary' : 'bg-outline-variant']"></div>
+            <div
+              :class="[
+                'mt-1 w-2 h-2 rounded-full shrink-0',
+                index === 0 ? 'bg-secondary' : 'bg-outline-variant',
+              ]"
+            />
             <div>
-              <p class="text-xs font-bold text-on-surface">{{ visit.date }} • Purchased ${{ visit.amount.toFixed(2) }}</p>
+              <p class="text-xs font-bold text-on-surface">
+                {{ visit.date }} · Compra ${{ visit.amount.toFixed(2) }}
+              </p>
               <p class="text-[10px] text-on-surface-variant">{{ visit.items }}</p>
             </div>
           </div>
@@ -52,9 +69,11 @@ defineProps({
           class="w-full py-3 rounded-full bg-surface-variant text-primary/40 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
         >
           <span class="material-symbols-outlined text-sm">send</span>
-          Send Loyalty Voucher
-          <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-            Want full access? Talk to us.
+          Enviar cupón de fidelidad
+          <span
+            class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap"
+          >
+            {{ MSG_ACCESS_TOOLTIP }}
           </span>
         </button>
         <button
@@ -62,9 +81,11 @@ defineProps({
           class="w-full py-3 rounded-full bg-surface-variant text-primary/40 font-bold text-sm cursor-not-allowed group relative flex items-center justify-center gap-2"
         >
           <span class="material-symbols-outlined text-sm">edit</span>
-          Edit Profile Notes
-          <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-            Want full access? Talk to us.
+          Editar notas del perfil
+          <span
+            class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap"
+          >
+            {{ MSG_ACCESS_TOOLTIP }}
           </span>
         </button>
       </section>

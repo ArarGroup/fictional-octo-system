@@ -8,12 +8,6 @@ defineProps({
 })
 
 const emit = defineEmits(['select', 'filter-change'])
-
-const filters = [
-  { value: 'all',      label: 'All'      },
-  { value: 'active',   label: 'Active'   },
-  { value: 'at_risk',  label: 'At Risk'  },
-]
 </script>
 
 <template>
@@ -21,16 +15,20 @@ const filters = [
     <!-- Header row: filters + count -->
     <div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between">
       <div class="flex gap-3">
-        <span class="px-4 py-1.5 rounded-full bg-primary-container/20 text-primary text-xs font-bold flex items-center gap-1">
+        <span
+          class="px-4 py-1.5 rounded-full bg-primary-container/20 text-primary text-xs font-bold flex items-center gap-1"
+        >
           <span class="material-symbols-outlined text-sm">filter_alt</span>
-          All Statuses
+          Todos los estados
         </span>
-        <span class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-xs font-bold cursor-pointer hover:bg-surface-container-high transition-colors">
-          Date Range
+        <span
+          class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-xs font-bold cursor-pointer hover:bg-surface-container-high transition-colors"
+        >
+          Rango de fechas
         </span>
       </div>
       <p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">
-        Displaying {{ customers.length }} active members
+        Mostrando {{ customers.length }} miembros activos
       </p>
     </div>
 
@@ -39,10 +37,26 @@ const filters = [
       <table class="w-full text-left border-collapse">
         <thead>
           <tr class="bg-surface-container-low">
-            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif">Customer Name</th>
-            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif">Status</th>
-            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif">Last Visited</th>
-            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif">Total Visits</th>
+            <th
+              class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif"
+            >
+              Cliente
+            </th>
+            <th
+              class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif"
+            >
+              Estado
+            </th>
+            <th
+              class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif"
+            >
+              Última visita
+            </th>
+            <th
+              class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest serif"
+            >
+              Visitas totales
+            </th>
           </tr>
         </thead>
         <tbody class="divide-y divide-surface-container">

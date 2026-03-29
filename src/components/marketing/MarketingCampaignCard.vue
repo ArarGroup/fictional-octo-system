@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { TALK_TO_US_TOOLTIP } from '@/mocks/marketing'
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
 
 const props = defineProps({
   status: { type: String, required: true },
@@ -89,7 +89,7 @@ const statusBadgeClass = computed(() => {
         edit
         <span
           class="absolute bottom-full right-0 mb-2 hidden group-hover/btn:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap pointer-events-none"
-        >{{ TALK_TO_US_TOOLTIP }}</span>
+        >{{ MSG_ACCESS_TOOLTIP }}</span>
       </button>
       <button
         v-else-if="showForward"
@@ -99,7 +99,7 @@ const statusBadgeClass = computed(() => {
         arrow_forward
         <span
           class="absolute bottom-full right-0 mb-2 hidden group-hover/btn:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap pointer-events-none"
-        >{{ TALK_TO_US_TOOLTIP }}</span>
+        >{{ MSG_ACCESS_TOOLTIP }}</span>
       </button>
     </div>
   </div>

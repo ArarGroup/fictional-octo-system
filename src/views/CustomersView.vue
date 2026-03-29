@@ -8,9 +8,9 @@ const store = useCustomersStore()
 const { filteredCustomers, selectedCustomer, activeFilter } = storeToRefs(store)
 
 const filters = [
-  { value: 'all',     label: 'All'     },
-  { value: 'active',  label: 'Active'  },
-  { value: 'at_risk', label: 'At Risk' },
+  { value: 'all', label: 'Todos' },
+  { value: 'active', label: 'Activos' },
+  { value: 'at_risk', label: 'En riesgo' },
 ]
 </script>
 
@@ -19,9 +19,9 @@ const filters = [
     <!-- Page header -->
     <div class="flex justify-between items-end mb-12">
       <div>
-        <h2 class="text-4xl serif font-bold text-on-surface mb-2">My Customers</h2>
+        <h2 class="text-4xl serif font-bold text-on-surface mb-2">Mis clientes</h2>
         <p class="text-on-surface-variant font-body">
-          Manage your relationship with the members of the FruverFiel ecosystem.
+          Gestioná la relación con los miembros del ecosistema FruverFiel.
         </p>
       </div>
       <!-- Filter tabs -->
@@ -56,10 +56,7 @@ const filters = [
 
       <!-- Detail panel (right) -->
       <div class="col-span-12 lg:col-span-4">
-        <CustomerDetailPanel
-          v-if="selectedCustomer"
-          :customer="selectedCustomer"
-        />
+        <CustomerDetailPanel v-if="selectedCustomer" :customer="selectedCustomer" />
       </div>
     </div>
   </div>

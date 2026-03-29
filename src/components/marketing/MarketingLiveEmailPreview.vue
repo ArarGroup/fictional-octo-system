@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { MARKETING_LIVE_EMAIL, TALK_TO_US_TOOLTIP } from '@/mocks/marketing'
+import { MARKETING_LIVE_EMAIL } from '@/mocks/marketing'
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
 
 defineProps({
   title: { type: String, required: true },
@@ -25,7 +26,7 @@ const focus = ref('desktop')
           <span class="material-symbols-outlined">desktop_windows</span>
           <span
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap pointer-events-none z-10"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </button>
         <button
           type="button"
@@ -38,7 +39,7 @@ const focus = ref('desktop')
           <span class="material-symbols-outlined">smartphone</span>
           <span
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap pointer-events-none z-10"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </button>
       </div>
     </div>

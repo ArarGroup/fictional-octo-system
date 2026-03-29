@@ -1,14 +1,15 @@
 <script setup>
 import { useRoute } from 'vue-router'
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
 
 const route = useRoute()
 
 const navItems = [
-  { label: 'Overview',     icon: 'dashboard',  to: '/overview'   },
-  { label: 'My Customers', icon: 'group',       to: '/customers'  },
-  { label: 'Insights',     icon: 'analytics',   to: '/insights'   },
-  { label: 'Campaigns',    icon: 'campaign',    to: '/campaigns'  },
-  { label: 'Marketing',    icon: 'mail',        to: '/marketing'  },
+  { label: 'Resumen', icon: 'dashboard', to: '/overview' },
+  { label: 'Mis clientes', icon: 'group', to: '/customers' },
+  { label: 'Insights', icon: 'analytics', to: '/insights' },
+  { label: 'Campañas', icon: 'campaign', to: '/campaigns' },
+  { label: 'Marketing', icon: 'mail', to: '/marketing' },
 ]
 </script>
 
@@ -17,7 +18,9 @@ const navItems = [
     <!-- Logo -->
     <div class="p-8">
       <h1 class="text-2xl font-bold text-primary italic serif">FruverFiel</h1>
-      <p class="text-xs tracking-widest uppercase text-on-surface-variant mt-1 font-medium">Modern Agrarian</p>
+      <p class="text-xs tracking-widest uppercase text-on-surface-variant mt-1 font-medium">
+        Agrario moderno
+      </p>
     </div>
 
     <!-- Nav -->
@@ -46,10 +49,14 @@ const navItems = [
 
     <!-- CTA -->
     <div class="p-6 mt-auto">
-      <button class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full cta-gradient text-on-primary font-bold text-sm shadow-md hover:opacity-90 transition-opacity group relative">
-        Talk to us
-        <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-          Want full access? Talk to us.
+      <button
+        class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full cta-gradient text-on-primary font-bold text-sm shadow-md hover:opacity-90 transition-opacity group relative"
+      >
+        Hablemos
+        <span
+          class="absolute -top-12 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap"
+        >
+          {{ MSG_ACCESS_TOOLTIP }}
         </span>
       </button>
     </div>

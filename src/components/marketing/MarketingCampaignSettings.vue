@@ -1,8 +1,9 @@
 <script setup>
-import { MARKETING_SETTINGS, TALK_TO_US_TOOLTIP } from '@/mocks/marketing'
+import { MARKETING_SETTINGS } from '@/mocks/marketing'
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
 
 defineProps({
-  title: { type: String, default: 'Campaign Settings' },
+  title: { type: String, default: 'Ajustes de campaña' },
 })
 </script>
 
@@ -29,7 +30,7 @@ defineProps({
           >expand_more</span>
           <span
             class="absolute bottom-full left-0 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded z-10"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </div>
       </div>
       <div>
@@ -49,7 +50,7 @@ defineProps({
           >calendar_today</span>
           <span
             class="absolute bottom-full left-0 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded z-10"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row items-stretch sm:items-end gap-3">
@@ -60,7 +61,7 @@ defineProps({
           {{ MARKETING_SETTINGS.saveDraft }}
           <span
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </button>
         <button
           type="button"
@@ -69,7 +70,7 @@ defineProps({
           {{ MARKETING_SETTINGS.schedule }}
           <span
             class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded whitespace-nowrap"
-          >{{ TALK_TO_US_TOOLTIP }}</span>
+          >{{ MSG_ACCESS_TOOLTIP }}</span>
         </button>
       </div>
     </div>

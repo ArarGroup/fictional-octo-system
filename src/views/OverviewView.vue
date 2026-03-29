@@ -18,61 +18,59 @@ const { totalMembers, totalVisits, atRiskCount, newMembersCount, recentMembers }
 const alertTitle = computed(() => {
   const n = atRiskCount.value
   if (n === 0) {
-    return 'Your member base looks steady'
+    return 'Tu base de miembros se ve estable'
   }
   if (n === 1) {
-    return '1 member needs a nudge this week'
+    return '1 miembro necesita un empujón esta semana'
   }
-  return `${n} members need a nudge this week`
+  return `${n} miembros necesitan un empujón esta semana`
 })
 
 const alertBody = computed(() =>
   atRiskCount.value === 0
-    ? 'No urgent at-risk signals from the current roster. Keep an eye on Insights for trends.'
+    ? 'No hay señales urgentes de riesgo en la lista actual. Seguí Insights para ver tendencias.'
     : OVERVIEW_ALERT.body
 )
 
-const formattedTotalVisits = computed(() =>
-  totalVisits.value.toLocaleString()
-)
+const formattedTotalVisits = computed(() => totalVisits.value.toLocaleString('es-419'))
 </script>
 
 <template>
   <div class="p-10 max-w-7xl mx-auto">
     <!-- Page header -->
     <div class="mb-10">
-      <h2 class="text-4xl serif font-bold text-on-surface mb-2">Overview</h2>
+      <h2 class="text-4xl serif font-bold text-on-surface mb-2">Resumen</h2>
       <p class="text-on-surface-variant font-body max-w-2xl">
-        Snapshot of membership health, visit patterns, and signals worth acting on — aligned with
-        your customer roster.
+        Panorama de la membresía, patrones de visita y señales para actuar — alineado con tu lista
+        de clientes.
       </p>
     </div>
 
     <!-- KPI row -->
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
       <OverviewStatCard
-        label="Active members"
+        label="Miembros activos"
         :value="totalMembers"
         icon="group"
-        hint="Total in your FruverFiel roster"
+        hint="Total en tu red FruverFiel"
       />
       <OverviewStatCard
-        label="Lifetime visits"
+        label="Visitas de por vida"
         :value="formattedTotalVisits"
         icon="calendar_month"
-        hint="Recorded across all members"
+        hint="Registradas entre todos los miembros"
       />
       <OverviewStatCard
-        label="New members"
+        label="Miembros nuevos"
         :value="newMembersCount"
         icon="person_add"
-        hint="Still establishing habits"
+        hint="Todavía definiendo hábitos"
       />
       <OverviewStatCard
-        label="Needs attention"
+        label="Requieren atención"
         :value="atRiskCount"
         icon="priority_high"
-        hint="At risk or lost touch"
+        hint="En riesgo o sin contacto"
       />
     </div>
 
@@ -83,16 +81,17 @@ const formattedTotalVisits = computed(() =>
       <div class="col-span-12 lg:col-span-7 space-y-8">
         <OverviewVisitTrend :series="WEEKLY_VISIT_TREND" />
 
-        <div class="bg-surface-container-lowest rounded-2xl p-6 custom-shadow border border-outline-variant/30">
+        <div
+          class="bg-surface-container-lowest rounded-2xl p-6 custom-shadow border border-outline-variant/30"
+        >
           <div class="flex items-center justify-between mb-2">
             <div>
-              <h3 class="text-lg font-bold text-on-surface serif">Recent activity</h3>
-              <p class="text-sm text-on-surface-variant font-body">Sorted by last visit</p>
+              <h3 class="text-lg font-bold text-on-surface serif">Actividad reciente</h3>
+              <p class="text-sm text-on-surface-variant font-body">Ordenado por última visita</p>
             </div>
-            <router-link
-              to="/customers"
-              class="text-sm font-bold text-primary hover:underline"
-            >View all</router-link>
+            <router-link to="/customers" class="text-sm font-bold text-primary hover:underline"
+              >Ver todos</router-link
+            >
           </div>
           <div class="mt-2">
             <OverviewActivityRow
@@ -112,8 +111,8 @@ const formattedTotalVisits = computed(() =>
 
       <div class="col-span-12 lg:col-span-5 space-y-4">
         <div class="mb-2">
-          <h3 class="text-lg font-bold text-on-surface serif">AI insights</h3>
-          <p class="text-sm text-on-surface-variant font-body">Patterns from your store</p>
+          <h3 class="text-lg font-bold text-on-surface serif">Insights de IA</h3>
+          <p class="text-sm text-on-surface-variant font-body">Patrones de tu tienda</p>
         </div>
         <OverviewInsightCard
           v-for="ins in OVERVIEW_INSIGHTS"

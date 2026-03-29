@@ -10,13 +10,13 @@ const routes = [
     path: '/customers',
     name: 'customers',
     component: CustomersView,
-    meta: { title: 'My Customers', hideFab: true },
+    meta: { title: 'Mis clientes', hideFab: true },
   },
   {
     path: '/overview',
     name: 'overview',
     component: () => import('@/views/OverviewView.vue'),
-    meta: { title: 'Overview', hideFab: true },
+    meta: { title: 'Resumen', hideFab: true },
   },
   {
     path: '/insights',
@@ -24,7 +24,7 @@ const routes = [
     component: () => import('@/views/InsightsView.vue'),
     meta: {
       title: 'Insights',
-      searchPlaceholder: 'Search insights…',
+      searchPlaceholder: 'Buscar en insights…',
       hideFab: true,
     },
   },
@@ -32,13 +32,13 @@ const routes = [
     path: '/campaigns',
     name: 'campaigns',
     component: () => import('@/views/CampaignsView.vue'),
-    meta: { title: 'Campaigns', hideFab: true },
+    meta: { title: 'Campañas', hideFab: true },
   },
   {
     path: '/marketing',
     name: 'marketing',
     component: () => import('@/views/MarketingView.vue'),
-    meta: { title: 'Marketing preview', hideFab: true },
+    meta: { title: 'Vista previa de marketing', hideFab: true },
   },
 ]
 

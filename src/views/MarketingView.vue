@@ -69,7 +69,7 @@ import MarketingCampaignSettings from '@/components/marketing/MarketingCampaignS
 
     <!-- Live email -->
     <section class="mb-12 lg:mb-16" aria-labelledby="live-email-heading">
-      <h2 id="live-email-heading" class="sr-only">Live email preview</h2>
+      <h2 id="live-email-heading" class="sr-only">Vista previa del correo</h2>
       <MarketingLiveEmailPreview :title="MARKETING_PAGE.livePreviewTitle" />
     </section>
 

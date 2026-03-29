@@ -3,21 +3,26 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCustomersStore } from '@/stores/customers'
 import { CURRENT_USER } from '@/mocks/customers'
+import { MSG_ACCESS_TOOLTIP } from '@/mocks/uiCopy'
 
 const route = useRoute()
 const store = useCustomersStore()
 
 const searchPlaceholder = computed(
-  () => route.meta.searchPlaceholder ?? 'Search customer name…'
+  () => route.meta.searchPlaceholder ?? 'Buscar cliente por nombre…'
 )
 </script>
 
 <template>
-  <header class="fixed top-0 right-0 left-64 h-16 z-30 flex justify-between items-center px-8 bg-background/80 dark:bg-stone-900/80 backdrop-blur-md">
+  <header
+    class="fixed top-0 right-0 left-64 h-16 z-30 flex justify-between items-center px-8 bg-background/80 dark:bg-stone-900/80 backdrop-blur-md"
+  >
     <!-- Search -->
     <div class="flex items-center gap-4 flex-1">
       <div class="relative w-full max-w-md">
-        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/55 text-lg">search</span>
+        <span
+          class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/55 text-lg"
+        >search</span>
         <input
           :value="store.searchQuery"
           @input="store.setSearchQuery($event.target.value)"
@@ -30,11 +35,15 @@ const searchPlaceholder = computed(
 
     <!-- Right side -->
     <div class="flex items-center gap-6">
-      <button class="text-primary dark:text-primary-fixed-dim font-medium hover:text-primary-container transition-opacity opacity-90 hover:opacity-100 flex items-center gap-1 group relative">
+      <button
+        class="text-primary dark:text-primary-fixed-dim font-medium hover:text-primary-container transition-opacity opacity-90 hover:opacity-100 flex items-center gap-1 group relative"
+      >
         <span class="material-symbols-outlined text-xl">help</span>
-        <span>Help</span>
-        <span class="absolute -bottom-10 right-0 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-          Want full access? Talk to us.
+        <span>Ayuda</span>
+        <span
+          class="absolute -bottom-10 right-0 bg-on-surface text-surface text-xs py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap"
+        >
+          {{ MSG_ACCESS_TOOLTIP }}
         </span>
       </button>
       <div class="h-8 w-8 rounded-full overflow-hidden ring-2 ring-primary/10">

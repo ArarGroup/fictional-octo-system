@@ -1,14 +1,14 @@
 /**
- * Overview dashboard — copy and series data (stats are derived from MOCK_CUSTOMERS in useOverviewStats).
+ * Resumen — textos y serie de visitas (los totales salen de MOCK_CUSTOMERS).
  */
 
 export const OVERVIEW_ALERT = {
-  title: '3 members need a nudge this week',
+  title: '3 miembros necesitan un empujón esta semana',
   body:
-    'Visit frequency dropped for long-time regulars. AI suggests a short SMS with a seasonal produce perk — review in Campaigns.',
+    'La frecuencia de visita bajó entre clientes frecuentes. La IA sugiere un SMS breve con un beneficio de producto de temporada — revisalo en Campañas.',
 }
 
-/** Accent maps to Tailwind border-l-* (design tokens). */
+/** Acentos → border-l-* (tokens Tailwind). */
 export const INSIGHT_ACCENTS = {
   primary: 'border-l-primary',
   secondary: 'border-l-secondary',
@@ -19,30 +19,30 @@ export const OVERVIEW_INSIGHTS = [
   {
     id: 'ins-1',
     text:
-      'Tuesday mornings drive 28% of repeat visits — consider a mid-week produce spotlight.',
+      'Los martes por la mañana concentran el 28% de las visitas repetidas — vale la pena un foco de verdura a mitad de semana.',
     accent: 'primary',
   },
   {
     id: 'ins-2',
     text:
-      'New members who return within 7 days are 3× more likely to reach Silver tier.',
+      'Los miembros nuevos que vuelven en 7 días tienen 3× más probabilidades de alcanzar nivel plata.',
     accent: 'secondary',
   },
   {
     id: 'ins-3',
     text:
-      'Gold tier shoppers bundle dairy with bakery items — pair those in your next offer.',
+      'En nivel oro suelen combinar lácteos con panadería — emparéjalos en tu próxima oferta.',
     accent: 'tertiary',
   },
 ]
 
-/** Last 7 days — relative bar heights (0–100) for the visit trend strip. */
+/** Últimos 7 días — alturas relativas (0–100) para la franja de visitas. */
 export const WEEKLY_VISIT_TREND = [
-  { label: 'Mon', value: 62 },
-  { label: 'Tue', value: 88 },
-  { label: 'Wed', value: 71 },
-  { label: 'Thu', value: 95 },
-  { label: 'Fri', value: 78 },
-  { label: 'Sat', value: 100 },
-  { label: 'Sun', value: 54 },
+  { label: 'Lun', value: 62 },
+  { label: 'Mar', value: 88 },
+  { label: 'Mié', value: 71 },
+  { label: 'Jue', value: 95 },
+  { label: 'Vie', value: 78 },
+  { label: 'Sáb', value: 100 },
+  { label: 'Dom', value: 54 },
 ]
